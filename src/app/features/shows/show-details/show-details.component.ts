@@ -52,9 +52,9 @@ export class ShowDetailsComponent implements OnInit {
     });
   }
   toSeasonPage(){
-    this.router.navigate(['/seasons']);
+    this.router.navigate(['/']);
   }
   toEpisodesPage(){
-    this.router.navigate(['/episodes']);
+    this.router.navigate(['/']);
   }
 }
