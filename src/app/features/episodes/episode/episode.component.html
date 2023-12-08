@@ -1,0 +1,10 @@
+
+<img [src]="episode.image.medium" alt="{{ episode.name }} Image" />
+<h4>{{ episode.name }}</h4>
+<p>Season {{ episode.season }}, Episode {{ episode.number }}</p>
+<p>Airdate: {{ episode.airdate }}</p>
+<p>Airtime: {{ episode.airtime }}</p>
+<p>Runtime: {{ episode.runtime }} minutes</p>
+<p>Rating: {{ episode.rating.average }}</p>
+<p [innerHTML]="episode.summary"></p>
+

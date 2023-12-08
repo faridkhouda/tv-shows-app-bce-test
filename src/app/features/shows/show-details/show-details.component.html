@@ -1,0 +1,50 @@
+
+<app-navbar></app-navbar>
+<a routerLink="/home" routerLinkActive="active">/SHOW LIST/SHOW DETAILS</a>
+<div
+  *ngIf="showDetails"
+  style="width: 60%; margin-left: auto; margin-right: auto; margin-top: 100px"
+>
+  <mat-card>
+    <img
+      style="width: 20%"
+      [src]="showDetails.image.medium"
+      alt="{{ showDetails.name }} Image"
+      mat-card-image
+    />
+
+    <mat-card-content>
+      <mat-card-title>{{ showDetails.name }}</mat-card-title>
+      <mat-card-subtitle>{{ showDetails.type }}</mat-card-subtitle>
+
+      <p>Type: {{ showDetails.type }}</p>
+      <p>Language: {{ showDetails.language }}</p>
+      <p>Genres: {{ showDetails.genres?.join(", ") }}</p>
+      <p>Status: {{ showDetails.status }}</p>
+      <p>Runtime: {{ showDetails.runtime }} minutes</p>
+      <p>Premiered: {{ showDetails.premiered }}</p>
+      <p>Ended: {{ showDetails.ended }}</p>
+      <p>
+        Official Site:
+        <a [href]="showDetails.officialSite" target="_blank">{{
+          showDetails.officialSite
+        }}</a>
+      </p>
+
+      <p>
+        Schedule: {{ showDetails.schedule?.days?.join(", ") }} at
+        {{ showDetails.schedule?.time }}
+      </p>
+      <p>Rating: {{ showDetails.rating?.average }}</p>
+      <p>Weight: {{ showDetails.weight }}</p>
+
+      <p>
+        <strong>Updated:</strong> {{ showDetails.updated | date : "short" }}
+      </p>
+    </mat-card-content>
+    <br>
+<button (click)="toSeasonPage()" style="width: 120px;">Show All seasons</button>
+<br>
+<button (click)="toEpisodesPage()" style="width: 120px;">Show All Episodes</button>
+  </mat-card>
+

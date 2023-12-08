@@ -1,1 +1,35 @@
-<p>home works!</p>
+
+<app-navbar></app-navbar>
+
+
+<div  class="mat-card-container" style="margin-top: 100px;">
+  <a routerLink="/home" routerLinkActive="active">/SHOW LIST</a>
+  <input type="text" [(ngModel)]="searchTerm" (input)="onSearchChange()" placeholder="Search by title">
+</div>
+
+
+<div class="mat-card-container" style="margin-top: 100px;">
+  <mat-card *ngFor="let show of shows" class="mat-card-item">
+    <img [src]="show.image.medium" alt="{{ show.name }} Image" mat-card-image style="max-height: 200px; object-fit: cover;">
+    <mat-card-content>
+      <h2>{{ show.name }}</h2>
+      <p><strong>Type:</strong> {{ show.type }}</p>
+      <p><strong>Language:</strong> {{ show.language }}</p>
+      <p><strong>Genres:</strong> {{ show.genres.join(', ') }}</p>
+      <p><strong>Status:</strong> {{ show.status }}</p>
+      <p><strong>Runtime:</strong> {{ show.runtime }} minutes</p>
+      <p><strong>Premiered:</strong> {{ show.premiered }}</p>
+      <p><strong>Ended:</strong> {{ show.ended }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" [routerLink]="['/show', show.id]">View Details</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<mat-paginator
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[pageSize]"
+  [length]="totalShows"
+  (page)="onPageChange($event)">
+</mat-paginator>
