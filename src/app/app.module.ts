@@ -17,6 +17,7 @@ import { EpisodeComponent } from './features/episodes/episode/episode.component'
 import { EpisodeListComponent } from './features/episodes/episode-list/episode-list.component';
 import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './features/navbar/navbar.component';
+import { FooterComponent } from './features/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { NavbarComponent } from './features/navbar/navbar.component';
     EpisodeComponent,
     EpisodeListComponent,
     NavbarComponent,
+    FooterComponent,
     
   ],
   imports: [
